@@ -14,12 +14,12 @@ class Guess
     card_parameters == response
   end
 
-  # def get_card
+  def feedback
+    if correct?
+     "Correct!"
+    else
+     "Incorrect."
+    end
+  end
 
-  # end
 end
-
-card = Card.new("10", "Hearts")
-guess = Guess.new("10 of Hearts", card)
-
-guess.correct?
