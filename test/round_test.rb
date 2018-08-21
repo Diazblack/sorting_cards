@@ -9,6 +9,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
+
     assert_instance_of Round, round
   end
 
@@ -17,8 +18,10 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
+
     assert_equal deck, round.deck
     assert_equal [], round.guesses
+    assert_equal [], round.correct
   end
 
   def test_if_it_can_get_a_current_card
@@ -26,6 +29,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
+
     assert_equal card_1, round.current_card
   end
 
@@ -34,6 +38,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
+
     actual = round.record_guess({value:"3", suit:"Hearts"})
     assert_instance_of Guess, actual
   end
@@ -43,6 +48,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
+
     guess = round.record_guess({value:"3", suit:"Hearts"})
     assert_equal 1 , round.guesses.count
   end
@@ -52,6 +58,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
+
     guess = round.record_guess({value:"3", suit:"Hearts"})
     assert_equal "Correct!" , round.guesses.first.feedback
   end
@@ -61,7 +68,9 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
+
     guess = round.record_guess({value:"3", suit:"Hearts"})
-    assert_equal 1 , round.number_correct  
+    # binding.pry
+    assert_equal 1 , round.number_correct
   end
 end
