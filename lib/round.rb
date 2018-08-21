@@ -22,4 +22,9 @@ class Round
     @guesses << new_guess
     return new_guess
   end
+
+  # def number_correct
+    # @guesse
+  # end
+
 end

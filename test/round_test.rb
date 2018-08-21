@@ -46,4 +46,22 @@ class RoundTest < Minitest::Test
     guess = round.record_guess({value:"3", suit:"Hearts"})
     assert_equal 1 , round.guesses.count
   end
+
+  def test_if_it_can_get_a_feedback_at_first_guess
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    guess = round.record_guess({value:"3", suit:"Hearts"})
+    assert_equal "Correct!" , round.guesses.first.feedback
+  end
+
+  def test_if_it_can_count_the_number_of_correct_answers
+    card_1 = Card.new("3","Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    guess = round.record_guess({value:"3", suit:"Hearts"})
+    assert_equal 1 , round.number_correct  
+  end
 end
