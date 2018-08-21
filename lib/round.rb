@@ -6,13 +6,13 @@ require 'pry'
 class Round
   attr_reader :deck,
               :guesses,
-              :correct
+              :guesses_word
 
 
   def initialize(deck)
     @deck = deck
     @guesses = []
-    @correct = []
+    @guesses_word = []
   end
 
   def current_card
@@ -22,17 +22,19 @@ class Round
   def record_guess(guess)
     response = "#{guess[:value]} of #{guess[:suit]}"
     new_guess = Guess.new(response, current_card)
-    @correct << new_guess.feedback
+    @guesses_word << new_guess.feedback
     @guesses << new_guess
-
-    return new_guess
+    new_guess
   end
 
   def number_correct
-    number =  @correct.select do |anwser|
-     "Correct!"
+    number =  @guesses_word.select do |anwser|
+     anwser == "Correct!"
     end
     number.length
   end
 
+  def percent_correct
+    (number_correct.to_f / @guesses_word.length) * 100
+  end
 end
