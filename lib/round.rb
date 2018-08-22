@@ -1,6 +1,5 @@
 require './lib/guess.rb'
 require './lib/deck.rb'
-require './lib/card.rb'
 require 'pry'
 
 class Round
@@ -37,4 +36,5 @@ class Round
   def percent_correct
     (number_correct.to_f / @guesses_word.length) * 100
   end
+
 end
