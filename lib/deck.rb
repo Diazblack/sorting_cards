@@ -16,15 +16,34 @@ class Deck
     swap = true
     until swap == false do
       swap = false
-      (cards.length - 1).times do |number|
+      cards.each do |number|
         if  cards[number].brand_value > cards[number + 1].brand_value
           cards[number], cards[number + 1] = cards[number + 1], cards[number]
           swap = true
+        elsif cards[number].brand_value == cards[number + 1].brand_value
+
+          if cards[number].brand_suit > cards[number + 1].brand_suit
+            cards[number], cards[number + 1] = cards[number + 1], cards[number]
+            swap = true
+          end
         end
       end
     end
     cards
   end
 
+  def swap_cards_value
+    if  cards[number].brand_value > cards[number + 1].brand_value
+      cards[number], cards[number + 1] = cards[number + 1], cards[number]
+    end
+  end
+
+  def swap_cards_suit
+    if  cards[number].brand_value == cards[number + 1].brand_value
+      if cards[number].brand_suit > cards[number + 1].brand_suit
+        cards[number], cards[number + 1] = cards[number + 1], cards[number]
+      end
+    end
+  end
 
 end

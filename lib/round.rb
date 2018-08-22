@@ -1,6 +1,5 @@
 require './lib/guess.rb'
 require './lib/deck.rb'
-require './lib/card.rb'
 require 'pry'
 
 class Round
