@@ -12,13 +12,19 @@ class Deck
     cards.length
   end
 
-  def two_cards_sorting
-    if cards[0].card_brand > cards[1].card_brand
-      change = cards[0]
-      cards[0] = cards[1]
-      cards[1] = change
+  def sort
+    swap = true
+    until swap == false do
+      swap = false
+      (cards.length - 1).times do |number|
+        if  cards[number].brand_value > cards[number + 1].brand_value
+          cards[number], cards[number + 1] = cards[number + 1], cards[number]
+          swap = true
+        end
+      end
     end
     cards
   end
+
 
 end

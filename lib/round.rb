@@ -38,5 +38,4 @@ class Round
     (number_correct.to_f / @guesses_word.length) * 100
   end
 
-
 end

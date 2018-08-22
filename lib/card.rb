@@ -7,7 +7,7 @@ class Card
     @suit = suit
   end
 
-  def card_brand
+  def brand_value
     cards_bag = {
       "Ace" => 13,
       "2" => 2,
@@ -21,11 +21,17 @@ class Card
       "Jack" => 10,
       "Queen" => 11,
       "King" => 12,
-      "Clubs" => 0,
-      "Diamonds" => 20,
-      "Hearts" => 40,
-      "Spades" => 60
       }
-      cards_bag[value] + cards_bag[suit]
+      cards_bag[value]
+  end
+
+  def brand_suit
+    cards_bag = {
+      "Clubs" => 0,
+      "Diamonds" => 10,
+      "Hearts" => 20,
+      "Spades" => 30
+      }
+      cards_bag[suit]
   end
 end
