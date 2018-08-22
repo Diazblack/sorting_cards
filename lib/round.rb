@@ -37,4 +37,6 @@ class Round
   def percent_correct
     (number_correct.to_f / @guesses_word.length) * 100
   end
+
+
 end

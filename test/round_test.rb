@@ -132,4 +132,6 @@ class RoundTest < Minitest::Test
     guess_2 = round.record_guess({value: "Jack", suit: "Diamonds"})
     assert_equal 50, round.percent_correct
   end
+
+
 end

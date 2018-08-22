@@ -14,4 +14,8 @@ class CardTest < Minitest::Test
     assert_equal "Hearts", new_card.suit
   end
 
+  def test_if_i_can_brand_card
+    new_card = Card.new("Ace", "Hearts")
+    assert_equal 53, new_card.card_brand
+  end
 end
