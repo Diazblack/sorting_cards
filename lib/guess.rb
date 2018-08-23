@@ -1,5 +1,6 @@
 require './lib/card.rb'
 require 'pry'
+
 class Guess
   attr_reader :response,
               :card

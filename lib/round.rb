@@ -7,7 +7,6 @@ class Round
               :guesses,
               :guesses_word
 
-
   def initialize(deck)
     @deck = deck
     @guesses = []
@@ -28,7 +27,7 @@ class Round
 
   def number_correct
     number =  @guesses_word.select do |anwser|
-     anwser == "Correct!"
+      anwser == "Correct!"
     end
     number.length
   end
@@ -36,5 +35,4 @@ class Round
   def percent_correct
     (number_correct.to_f / @guesses_word.length) * 100
   end
-
 end

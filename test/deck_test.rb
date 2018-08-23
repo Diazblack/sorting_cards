@@ -9,6 +9,7 @@ class DeckTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     card_3 = Card.new("5", "Diamonds")
     deck = Deck.new([card_1, card_2, card_3])
+
     assert_instance_of Deck, deck
   end
 
@@ -17,6 +18,7 @@ class DeckTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     card_3 = Card.new("5", "Diamonds")
     deck = Deck.new([card_1, card_2, card_3])
+
     assert_equal [card_1, card_2, card_3] , deck.cards
   end
 
@@ -25,6 +27,7 @@ class DeckTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     card_3 = Card.new("5", "Diamonds")
     deck = Deck.new([card_1, card_2, card_3])
+
     assert_equal 3, deck.count
   end
 
@@ -40,23 +43,4 @@ class DeckTest < Minitest::Test
     assert_equal [card_1, card_3, card_2, card_5, card_4],
     deck.sort
   end
-
-  def test_it_if_can_swap_cards_value
-    card_1 = Card.new("Ace", "Spades")
-    card_2 = Card.new("4","Hearts")
-    deck = Deck.new([card_1, card_2])
-
-    assert_equal [card_2, card_1],
-    deck.swap_cards_value
-  end
-
-  def test_it_if_can_swap_cards_suit
-    card_1 = Card.new("Ace", "Spades")
-    card_2 = Card.new("Ace", "Diamonds")
-    deck = Deck.new([card_1, card_2])
-
-    assert_equal [card_2, card_1],
-    deck.swap_cards_suit
-  end
-
 end
