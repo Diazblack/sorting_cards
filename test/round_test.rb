@@ -40,6 +40,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     actual = round.record_guess({value:"3", suit:"Hearts"})
+
     assert_instance_of Guess, actual
   end
 
@@ -50,6 +51,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess = round.record_guess({value:"3", suit:"Hearts"})
+
     assert_equal 1 , round.guesses.count
   end
 
@@ -60,6 +62,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess = round.record_guess({value:"3", suit:"Hearts"})
+
     assert_equal "Correct!" , round.guesses.first.feedback
   end
 
@@ -70,6 +73,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess = round.record_guess({value:"3", suit:"Hearts"})
+
     assert_equal 1 , round.number_correct
   end
 
@@ -80,8 +84,8 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess_1 = round.record_guess({value:"3", suit:"Hearts"})
-
     guess_2 = round.record_guess({value: "Jack", suit: "Diamonds"})
+
     assert_instance_of Guess, guess_2
   end
 
@@ -92,8 +96,8 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess_1 = round.record_guess({value:"3", suit:"Hearts"})
-
     guess_2 = round.record_guess({value: "Jack", suit: "Diamonds"})
+
     assert_equal 2 , round.guesses.count
   end
 
@@ -104,8 +108,8 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess_1 = round.record_guess({value:"3", suit:"Hearts"})
-
     guess_2 = round.record_guess({value: "Jack", suit: "Diamonds"})
+
     assert_equal "Incorrect.", round.guesses.last.feedback
   end
 
@@ -116,8 +120,8 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess_1 = round.record_guess({value:"3", suit:"Hearts"})
-
     guess_2 = round.record_guess({value: "Jack", suit: "Diamonds"})
+
     assert_equal 1, round.number_correct
   end
 
@@ -128,8 +132,8 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     guess_1 = round.record_guess({value:"3", suit:"Hearts"})
-
     guess_2 = round.record_guess({value: "Jack", suit: "Diamonds"})
+
     assert_equal 50, round.percent_correct
   end
 
